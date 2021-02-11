@@ -8,40 +8,39 @@ import banner from '../../assets/storage/pexels-cottonbro-4778621.jpg'
 export const home = ({ navigation }) => {
    return (
       <SafeAreaView style={styles.container}>
-       <ScrollView>
+      
 
           <Image source={banner} style={{ width: 400, height: 159 }} /> 
 
 
 
-          <View style={{paddingRight:170,paddingBottom:10,paddingTop:10}}>
-            <Text>Layanan Penempatan Kerja ? </Text>
+          <View style={{paddingRight:120,paddingBottom:10,paddingTop:10}}>
+            <Text style={{fontSize:17,}}>Layanan Penempatan Kerja ? </Text>
           </View>
-
+  <ScrollView>
    <View style={styles.row}>
           <View style={styles.row_child}>
             <TouchableOpacity 
-                onPress={() => navigation.navigate('Info')}
-                style={styles.button}           
+                onPress={() => navigation.navigate('Info')}        
                  >
                 <AntDesign name="notification" size={50} color="black" />
-               <Text style={{textAlign:'center'}}>Info</Text>
-            </TouchableOpacity>          
-          </View>
+                 <Text style={{textAlign:'center',}}>Info</Text>
+            </TouchableOpacity>              
+          </View>   
           
         <View style={styles.row_child}>
           <TouchableOpacity 
-                style={styles.button} 
+                // style={styles.button} 
                 onPress={() => navigation.navigate('Event')}
                  >
                 <MaterialIcons name="event" size={50} color="black" />
-                 <Text style={{textAlign:'center'}}>Event</Text>
+                 <Text style={{textAlign:'center',}}>Event</Text>
           </TouchableOpacity>    
         </View>
 
         <View style={styles.row_child}>
           <TouchableOpacity 
-                style={styles.button} 
+                // style={styles.button} 
                 onPress={() => navigation.navigate('Hiring')}
             >
                 <FontAwesome name="archive" size={50} color="black" />
@@ -54,7 +53,7 @@ export const home = ({ navigation }) => {
   <View style={styles.row_2}>
           <View style={styles.row_child}>
             <TouchableOpacity 
-                style={styles.button} 
+                // style={styles.button} 
                 onPress={() => navigation.navigate('Galeri')}
               >
                 <AntDesign name="picture" size={50} color="black" />
@@ -64,7 +63,7 @@ export const home = ({ navigation }) => {
           
         <View style={styles.row_child}>
           <TouchableOpacity 
-                style={styles.button} 
+                // style={styles.button} 
                 onPress={() => navigation.navigate('Alumni')}
                >
                 <MaterialCommunityIcons name="human-male-male" size={50} color="black" />
@@ -74,7 +73,7 @@ export const home = ({ navigation }) => {
 
         <View style={styles.row_child}>
           <TouchableOpacity 
-              style={styles.button} 
+              // style={styles.button} 
               onPress={() => navigation.navigate('Kampus')}
             >
               <MaterialCommunityIcons name="office-building" size={50} color="black" />
@@ -108,11 +107,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   }, 
    button: {
-    borderRadius:10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
+    borderRadius:100,
+    paddingTop: 0,
+    paddingBottom: 0,
+    paddingLeft: 0,
+    paddingRight: 0,
     backgroundColor: '#FFFFFF',
     shadowColor: 'rgba(0, 0, 0, 0.1)',
     shadowOpacity: 0.8,

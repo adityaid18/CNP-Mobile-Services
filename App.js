@@ -45,12 +45,12 @@ const RootStackScreen = ({userToken}) => (
         {userToken ? (
           <RootStack.Screen 
                 name="home" 
-                component={DrawerStackScreen}
+                component={AuthStackScreen}
                 options={{animationEnabled:false}}/>
         ):(
           <RootStack.Screen 
                 name="App" 
-                component={AuthStackScreen} 
+                component={DrawerStackScreen} 
                 options={{animationEnabled:false}}/>
 
         )}       
@@ -85,12 +85,12 @@ const TabStackScreen  = () => (
                   <Icons name="calendar-month" color={color} size={26}/> ), }}
                 />
         <Tab.Screen 
-                name="Profile" 
-                component={ProfileStackScreen}
+                name="Auth" 
+                component={AuthStackScreen}
                 options={{
-                  tabBarLabel: 'PROFILE',
+                  tabBarLabel: 'LOGIN',
                   tabBarIcon: ({ color }) => (
-                  <Icons name="face-profile" color={color} size={26}/> ), }}
+                  <Icons name="login" color={color} size={26}/> ), }}
                 />
      </Tab.Navigator>
 );
@@ -106,7 +106,7 @@ const HomeStackScreen = () => (
         }}
      >
         <HomeStack.Screen name="Home"   component={home}   options={{title:'C&P MOBILE SERVICES',}}/>
-        <HomeStack.Screen name="Info"   component={info}   options={{title:'INFO C&P ',}}/>
+        <HomeStack.Screen name="Info"   component={info}   options={{title:'INFORMASI C&P ',}}/>
         <HomeStack.Screen name="Event"  component={event}  options={{title:'EVENTS',}}/>
         <HomeStack.Screen name="Hiring" component={hiring} options={{title:'HIRING KAMPUS',}}/>
         <HomeStack.Screen name="Galeri" component={galeri} options={{title:'GALERI',}}/>
