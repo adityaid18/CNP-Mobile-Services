@@ -130,13 +130,13 @@ const HomeStackScreen = ({navigation}) => (
                       </View>
                 )  
               }}/>
-        <HomeStack.Screen name="Info"   component={info}   options={{title:'INFORMASI C&P ',}}/>
-        <HomeStack.Screen name="Event"  component={event}  options={{title:'EVENTS',}}/>
-        <HomeStack.Screen name="Hiring" component={hiring} options={{title:'HIRING KAMPUS',}}/>
+        <HomeStack.Screen name="Info"         component={info}         options={{title:'INFORMASI C&P ',}}/>
+        <HomeStack.Screen name="Event"        component={event}        options={{title:'EVENTS',}}/>
+        <HomeStack.Screen name="Hiring"       component={hiring}       options={{title:'HIRING KAMPUS',}}/>
         <HomeStack.Screen name="HiringDetail" component={hiringDetail} options={{title:'DETAIL HIRING ',}}/>
-        <HomeStack.Screen name="Galeri" component={galeri} options={{title:'GALERI',}}/>
-        <HomeStack.Screen name="Alumni" component={alumni} options={{title:'ALUMNI LP3I',}}/>
-        <HomeStack.Screen name="Kampus" component={kampus} options={{title:'DETAIL KAMPUS',}}/>
+        <HomeStack.Screen name="Galeri"       component={galeri}       options={{title:'GALERI',}}/>
+        <HomeStack.Screen name="Alumni"       component={alumni}       options={{title:'ALUMNI LP3I',}}/>
+        <HomeStack.Screen name="Kampus"       component={kampus}       options={{title:'DETAIL KAMPUS',}}/>
      </HomeStack.Navigator>
 );
 
