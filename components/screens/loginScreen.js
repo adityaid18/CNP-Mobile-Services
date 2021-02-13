@@ -1,47 +1,62 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
+import Icons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Input } from 'react-native-elements';
 import {AuthContext} from '../../context';
+import * as firebase from 'firebase';
 import myButton from '../action/myButton'
 
 export const login = ({navigation}) => {
   const { signIn } = React.useContext(AuthContext);
   
   return (
-    <View style={styles.container}>
-          <Text>Login screen</Text>
-          
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+           <Input
+              placeholder='Email'
+               autoCapitalize='none'
+               leftIcon={
+                    <Icons
+                      name='email'
+                      size={24}
+                     color='black'
+                    />
+                  }
+            />  
+            <Input
+              placeholder='Password'
+              autoCapitalize='none'
+              secureTextEntry
+                leftIcon={
+                    <Icons
+                      name='onepassword'
+                      size={24}
+                     color='black'
+                    />
+                  }
+            /> 
         <View>
-            <TouchableOpacity onPress={() => signIn()}>
-              <Text style={{color:'#00ff'}}>Login</Text>
+            <TouchableOpacity 
+                      style={styles.button}
+                      onPress={() => signIn()}>
+              <Text style={{color:'#fff'}}>LOGIN</Text>
             </TouchableOpacity>
         </View>
-        <View>
-          
-            <TouchableOpacity onPress={() => navigation.navigate('CreateAccount')}>
-              <Text style={{color:'#00ff'}}>Create Account</Text>
+
+        <View style={{paddingTop:15}}>        
+            <TouchableOpacity 
+                    style={styles.button}
+                    onPress={() => navigation.navigate('CreateAccount')}>
+              <Text style={{color:'#fff'}}>DAFTAR AKUN BARU</Text>
             </TouchableOpacity>
         </View>
-    </View>
+         </ScrollView>
+    </SafeAreaView>
+   
   );
 }
 
 
-export const signUp = () => {
-  const { signUp } = React.useContext(AuthContext);
-
-  return (
-    <View style={styles.container}>
-          <Text>Create Account screen</Text>
-          
-        <View>
-            <TouchableOpacity onPress={() => signUp()}>
-              <Text style={{color:'#00ff'}}>Login</Text>
-            </TouchableOpacity>
-        </View>
-
-    </View>
-  );
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -49,18 +64,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: 100
   },
    button: {
-    borderRadius:10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
-    backgroundColor: '#FFFFFF',
-    shadowColor: 'rgba(0, 0, 0, 0.1)',
-    shadowOpacity: 0.8,
-    elevation: 2,
-    shadowRadius: 5 ,
-    shadowOffset : { width: 1, height: 13},
-  }, 
+    shadowColor: 'rgba(0,0,0, .4)', // IOS
+    shadowOffset: { height: 1, width: 1 }, // IOS
+    shadowOpacity: 1, // IOS
+    shadowRadius: 1, //IOS
+    backgroundColor: '#00ff',
+    elevation: 2, // Android
+    height: 50,
+    width: 350,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+},
 });

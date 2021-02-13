@@ -17,6 +17,7 @@ export const info = () => {
   const [expandedTwo, setExpandedTwo] = React.useState(false);
   const [expandedThree, setExpandedThree] = React.useState(false);
   const [expandedFour, setExpandedFour] = React.useState(false);
+  const [expandedFive, setExpandedFive] = React.useState(false);
 
   return (
     <View style={styles.container}>
@@ -29,7 +30,7 @@ export const info = () => {
       }}
       >
         <View>
-             <Text style={{fontSize:17, fontWeight:'bold'}}>Apa itu Layanan Penempatan Kerja di { expanded ? " LP3I ? " : " LP3I ? "}</Text>
+             <Text style={{fontSize:17, fontWeight:'bold'}}>Apa itu Layanan Penempatan Kerja di{ expanded ? " LP3I ? " : " LP3I ? "}</Text>
         </View>
        
       </TouchableOpacity>
@@ -63,7 +64,7 @@ export const info = () => {
       }}
       >
         <View>
-             <Text style={{fontSize:17, fontWeight:'bold'}}>Apa saja Kegiatan C&P dalam Melayani { expandedTwo ? " Penempatan Kerja? " : " Penempatan Kerja? "}</Text>
+             <Text style={{fontSize:17, fontWeight:'bold'}}>Apa saja Kegiatan C&P dalam Melayani{ expandedTwo ? " Penempatan Kerja? " : " Penempatan Kerja? "}</Text>
         </View>
        
       </TouchableOpacity>
@@ -134,8 +135,81 @@ export const info = () => {
       </TouchableOpacity>
       { expandedFour && (
         <View style={styles.title}>
-          <Text>Kegiatan-kegiatan yang dilakukan agar tercapai tujuan menempatkan lulusan LP3I bekerja adalah sebagai berikut:</Text>
+          <Text style={{fontWeight:'bold'}}>pengelompokan Data IPK</Text>
+          <Text> a. IPK antara 3.00 – 4.00 merupakan kriteria wajib kerja</Text>
+          <Text> b. IPK antara 2.30 – 2.99 merupakan kriteria dibantu kerja</Text>
+
+          <Text style={{fontWeight:'bold'}}>Persyaratan Penempatan Kerja</Text>
+          <Text> a. Peserta didik telah menyelesaikan semester 3 dan mengikuti pembelajaran di semester 4</Text>
+          <Text> b. Disetujui oleh Head of Education</Text>
+          <Text> c. Tidak memiliki nilai D & min. B untuk pendidikan agama</Text> 
+          <Text> d. Maksimal usia 25 tahun dan belum menikah</Text>
+          <Text> e. Melampirkan sertifikat uji kompetensi minimal 2 dan sertifikat soft skill minimal 4 topik</Text>
+          <Text> f. Menyelesaikan administrasi keuangan</Text>
+          <Text> g. Memiliki surat keterangan sehat</Text>
+          <Text> h. Telah mengikuti pra magang</Text>
+          <Text> i. Bersedia ditempatkan di seluruh wilayah Indonesia</Text>
+
+          <Text style={{fontWeight:'bold'}}>Periode Penempatan</Text>
+          <Text style={{fontWeight:'bold'}}>Tahap I</Text>
+          <Text>Penempatan pra magang (Januari s/d Maret)</Text>
+          <Text>Penempatan wajib kerja (April s/d Juni)</Text>
+
+          <Text style={{fontWeight:'bold'}}>Tahap II dan III</Text>
+          <Text>Penempatan wajib kerja & dibantu kerja (Juli s/d September & Oktober s/d Desember)</Text>
+
+          <Text style={{fontWeight:'bold'}}>Tahap II dan III</Text>
+          <Text>Penempatan wajib kerja & dibantu kerja (Januari s/d Maret)</Text>
+
+          <Text style={{fontWeight:'bold'}}>Proses Pengiriman Calon Kandidat</Text>
+          <Text>a. Bagian C&P menerima permintaan kerja</Text>
+          <Text>b. Bagian C&P mempelajari kualifikasi yang diinginkan & hal yang harus dibawa saat tes</Text>
+          <Text>c. Peserta didik harus memberikan surat pengantar sesuai tes yang diikuti</Text>
+          <Text>d. Seleksi calon kandidat berdasarkan persyaratan yang berlaku dengan formula 1+3</Text>
+          <Text>f. Peserta didik akan dihubungi pihak C&P untuk diwawancara & diberikan penjelasan tentang perusahaan</Text>
+          <Text>g. CV kandidat yang yang lulus interview oleh pihak C&P akan dikirimkan ke pihak perusahaan (dibawa oleh kandidat atau melalui fax atau email)</Text>
+          <Text>h. Peserta didik akan mengikuti tes kemampuan oleh pihak perusahaan</Text>
+          <Text>i. Head of C&P wajib memberikan informasi kepada perusahaan bahwa peserta lulus seleksi perusahaan. Kemudian</Text>
+          <Text>j. Harus menandatangani kontrak kerja dan minimal mendapatkan gaji 10% di atas UMP.</Text>
           
+          <Text style={{fontWeight:'bold'}}>Daftar Dokumen</Text>
+          <Text>a. Daftar kandidat peserta didik yang wajib kerja</Text>
+          <Text>b. Daftar kandidat peserta didik yang dibantu kerja</Text>
+          <Text>c. Ucapan selamat kepada orang tua</Text>
+
+        </View>
+      )}
+      </Card>
+
+      <Card>
+      <TouchableOpacity
+      onPress={() =>{
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+        setExpandedFive(!expandedFive);
+      }}
+      >
+        <View>
+             <Text style={{fontSize:17, fontWeight:'bold'}}>3. Pembekalan dari{ expandedFive ? " Pihak Eksternal " : " Pihak Eksternal "}</Text>
+        </View>
+       
+      </TouchableOpacity>
+      { expandedFive && (
+        <View style={styles.title}>
+          <Text style={{fontWeight:'bold'}}>Materi Pembekalan</Text>
+          <Text> a. Informasi seputar dunia kerja</Text>
+          <Text> b. Proses rekrutmen dan seleksi</Text>
+          <Text> c. Tips dan trik seleksi di perusahaan</Text>
+          <Text> d. Budaya kerja perusahaan asing</Text>
+          <Text> e. Komunikasi dan negosiasi</Text>
+          <Text> f. Etika kerja</Text>
+
+          <Text style={{fontWeight:'bold'}}>Tahap Akhir</Text>
+          <Text> Dalam proses penempatan kerja, Head of C&P berkewajiban untuk:</Text>
+          <Text> a. Memberikan informasi perusahaan dan posisi yang dibutuhkan</Text>
+          <Text> b. Mengantar dan mengenalkan kandidat kepada HRD perusahaan</Text>
+          <Text> c. Meminta hasil tes kandidat melalui email dan surat secara resmi dari pihak perusahaan</Text>
+          <Text> d. Head of C&P mengirimkan ucapan terimakasih kepada perusahaan yang menerima kerja peserta didik</Text>
+          <Text> e. Head of C&P mengirimkan ucapan selamat kepada orang tua peserta didik atau alumni.</Text>
         </View>
       )}
       </Card>

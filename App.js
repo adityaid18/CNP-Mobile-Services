@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet, Text, View, Button} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -10,15 +11,16 @@ import  Icons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // import screens
 import {alumni }       from './components/screens/alumniScreen';
-import {event}         from './components/screens/eventScreen';
-import {createScreen }  from './components/screens/createScreen';
+import {event  }       from './components/screens/eventScreen';
+import {create }       from './components/screens/createScreen';
 import {galeri }       from './components/screens/galeriScreen';
 import {hiring }       from './components/screens/hiringScreen';
-import {home }         from './components/screens/homeScreen';
-import {info }         from './components/screens/infoScreen';
+import {hiringDetail } from './components/screens/hiringDetailScreen';
+import {home   }       from './components/screens/homeScreen';
+import {info   }       from './components/screens/infoScreen';
 import {jadwal }       from './components/screens/jadwalScreen';
-import {kampus}         from './components/screens/kampusScreen';
-import {login, signUp} from './components/screens/loginScreen';
+import {kampus }       from './components/screens/kampusScreen';
+import {login  }       from './components/screens/loginScreen';
 import {profile}       from './components/screens/profileScreen';
 import {Splash }       from './components/screens/loadingScreen';
 
@@ -26,15 +28,21 @@ import {Splash }       from './components/screens/loadingScreen';
 
 const AuthStack = createStackNavigator();
 const AuthStackScreen = () => (
-     <AuthStack.Navigator headerMode="none">
+     <AuthStack.Navigator  
+        headerMode='screen' 
+        screenOptions={{ 
+          headerTintColor:'white',
+          headerStyle: {backgroundColor: '#00008b'},
+          headerTitleAlign:'center'
+        }}>
         <AuthStack.Screen 
             name="loginScreen" 
             component={login} 
             options={{title :'Login'}}/>
         <AuthStack.Screen 
             name="CreateAccount" 
-            component={signUp}
-            options={{title :'Create Account'}} />
+            component={create}
+            options={{title :'Pendaftaran Akun Baru'}} />
     </AuthStack.Navigator>
 );
 
@@ -45,7 +53,7 @@ const RootStackScreen = ({userToken}) => (
         {userToken ? (
           <RootStack.Screen 
                 name="home" 
-                component={AuthStackScreen}
+                component={ProfileStackScreen}
                 options={{animationEnabled:false}}/>
         ):(
           <RootStack.Screen 
@@ -96,7 +104,7 @@ const TabStackScreen  = () => (
 );
     
 const HomeStack = createStackNavigator();
-const HomeStackScreen = () => (
+const HomeStackScreen = ({navigation}) => (
      <HomeStack.Navigator
         headerMode='screen' 
         screenOptions={{ 
@@ -105,13 +113,30 @@ const HomeStackScreen = () => (
           headerTitleAlign:'center'
         }}
      >
-        <HomeStack.Screen name="Home"   component={home}   options={{title:'C&P MOBILE SERVICES',}}/>
+        <HomeStack.Screen 
+              name="Home"  
+              component={home}   
+              options={{
+                title:'C&P MOBILE SERVICES',
+                headerLeft: () => (
+                      <View style={{marginLeft:10}}>
+                      <Icons
+                        name="menu"
+                        size={25}
+                        color="#fff"
+                        backgroundColor="#00008b"
+                        onPress={() => navigation.openDrawer()}
+                      />
+                      </View>
+                )  
+              }}/>
         <HomeStack.Screen name="Info"   component={info}   options={{title:'INFORMASI C&P ',}}/>
         <HomeStack.Screen name="Event"  component={event}  options={{title:'EVENTS',}}/>
         <HomeStack.Screen name="Hiring" component={hiring} options={{title:'HIRING KAMPUS',}}/>
+        <HomeStack.Screen name="HiringDetail" component={hiringDetail} options={{title:'DETAIL HIRING ',}}/>
         <HomeStack.Screen name="Galeri" component={galeri} options={{title:'GALERI',}}/>
         <HomeStack.Screen name="Alumni" component={alumni} options={{title:'ALUMNI LP3I',}}/>
-        <HomeStack.Screen name="Kampus" component={kampus} options={{title:'LP3I COLLEGE PURWAKARTA',}}/>
+        <HomeStack.Screen name="Kampus" component={kampus} options={{title:'DETAIL KAMPUS',}}/>
      </HomeStack.Navigator>
 );
 
@@ -129,7 +154,6 @@ const ScheduleStackScreen =() => (
       <ScheduleStack.Screen name="Jadwal" component={jadwal}/>
     </ScheduleStack.Navigator>
 );
-
 
 
 
@@ -173,6 +197,5 @@ export default() => {
         </AuthContext.Provider>
   );
 }
-
 
 

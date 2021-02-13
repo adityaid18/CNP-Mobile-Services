@@ -1,11 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
+import {data} from '../../model/data'
+import Card from '../action/card'
 
-export const profillp3iScreen = ({Navigation}) => {
+
+export const hiringDetail = ({navigation}) => {
+
   return (
     <View style={styles.container}>
-          <Text>Profil LP3I screen</Text>
-
+       <Text>Hiring</Text>
     </View>
   );
 }

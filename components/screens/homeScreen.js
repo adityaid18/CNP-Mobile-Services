@@ -2,15 +2,45 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, Dimensions, SafeAreaView, ScrollView } from 'react-native';
 import { AntDesign, MaterialCommunityIcons, FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
-import banner from '../../assets/storage/pexels-cottonbro-4778621.jpg'
+import Banner from '../../assets/storage/pexels-cottonbro-4778621.jpg'
+import Banner2 from '../../assets/storage/kampus_lp3i.jpg'
+import Banner3 from '../../assets/storage/pexels-keira-burton-6147161.jpg'
+import Swiper from 'react-native-swiper'
+
 
 
 export const home = ({ navigation }) => {
    return (
       <SafeAreaView style={styles.container}>
-      
 
-          <Image source={banner} style={{ width: 400, height: 159 }} /> 
+{/* swipper banner    */}
+          <View style={styles.slideContainer}>
+            <Swiper autoplay height={200}>
+              <View style={styles.slide}>
+                   <Image
+                    style={styles.slideImage} 
+                    source={Banner}
+                    resizeMode="cover"
+                    /> 
+              </View>
+               <View style={styles.slide}>
+                   <Image
+                    style={styles.slideImage} 
+                    source={Banner2}
+                    resizeMode="cover"
+                    /> 
+              </View>
+               {/* <View style={styles.slide}>
+                   <Image
+                    style={styles.slideImage} 
+                    source={Banner3}
+                    resizeMode="cover"
+                    /> 
+              </View> */}
+             
+            </Swiper>
+          </View>
+         
 
 
 
@@ -141,6 +171,27 @@ const styles = StyleSheet.create({
     width: 500,
     height: 120,
     marginBottom:400
+  },
+  wrapper: {},
+  slideContainer: {
+    height:200,
+    width:'90%',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderRadius:8,
+    marginTop:10
+  },
+  slide: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    borderRadius:8
+  },
+  slideImage: {
+    height:'100%',
+    width:'100%',
+    alignSelf: 'center',
+    borderRadius:8
   },
 });
 
