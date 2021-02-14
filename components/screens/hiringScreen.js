@@ -3,18 +3,16 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 import {data} from '../../model/data'
 import Card from '../action/card'
 
-
 export const hiring = ({navigation}) => {
 
   const renderItem = ({item}) => {
     return (
       <Card 
           itemData={item}
-          onPress={() => navigation.navigate('HiringDetail', {itemData:item})}
-      />
+          onPress={() => navigation.navigate('hiringDetail', {itemData:item})}
+       />
     );
   };
-
 
   return (
     <View style={styles.container}>
@@ -34,3 +32,4 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
 });
+

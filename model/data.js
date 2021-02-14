@@ -8,6 +8,7 @@ const Images = [
     {image: require('../assets/storage/alfamart.jpg')}
 ];
 
+
 export const data = [
     {
         id: '1',

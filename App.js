@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Button} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import { AuthContext } from './context';
 
@@ -24,9 +24,16 @@ import {login  }       from './components/screens/loginScreen';
 import {profile}       from './components/screens/profileScreen';
 import {Splash }       from './components/screens/loadingScreen';
 
- 
 
+
+const RootStack = createStackNavigator();
 const AuthStack = createStackNavigator();
+const HomeStack = createStackNavigator();
+const ProfileStack = createStackNavigator();
+const ScheduleStack = createStackNavigator();
+const DrawerStack = createDrawerNavigator();
+const Tab = createMaterialBottomTabNavigator();
+
 const AuthStackScreen = () => (
      <AuthStack.Navigator  
         headerMode='screen' 
@@ -47,7 +54,6 @@ const AuthStackScreen = () => (
 );
 
 
-const RootStack = createStackNavigator();
 const RootStackScreen = ({userToken}) => (
       <RootStack.Navigator headerMode="none">
         {userToken ? (
@@ -65,7 +71,7 @@ const RootStackScreen = ({userToken}) => (
       </RootStack.Navigator>
 );
 
-const DrawerStack = createDrawerNavigator();
+
 const DrawerStackScreen = () => (
   <DrawerStack.Navigator initialRouteName="Home">
     <DrawerStack.Screen name="Home" component={TabStackScreen}/>
@@ -73,9 +79,13 @@ const DrawerStackScreen = () => (
   </DrawerStack.Navigator>
 );
 
-const Tab = createBottomTabNavigator();
+
 const TabStackScreen  = () => (
-     <Tab.Navigator>
+     <Tab.Navigator 
+          aciveColor="#fff"
+          inactiveColor="#3e2465"
+          barStyle={{ backgroundColor: '#00008b' }}
+     >
         <Tab.Screen 
                 name="Home" 
                 component={HomeStackScreen}
@@ -102,8 +112,7 @@ const TabStackScreen  = () => (
                 />
      </Tab.Navigator>
 );
-    
-const HomeStack = createStackNavigator();
+
 const HomeStackScreen = ({navigation}) => (
      <HomeStack.Navigator
         headerMode='screen' 
@@ -130,17 +139,50 @@ const HomeStackScreen = ({navigation}) => (
                       </View>
                 )  
               }}/>
-        <HomeStack.Screen name="Info"         component={info}         options={{title:'INFORMASI C&P ',}}/>
-        <HomeStack.Screen name="Event"        component={event}        options={{title:'EVENTS',}}/>
-        <HomeStack.Screen name="Hiring"       component={hiring}       options={{title:'HIRING KAMPUS',}}/>
-        <HomeStack.Screen name="HiringDetail" component={hiringDetail} options={{title:'DETAIL HIRING ',}}/>
-        <HomeStack.Screen name="Galeri"       component={galeri}       options={{title:'GALERI',}}/>
-        <HomeStack.Screen name="Alumni"       component={alumni}       options={{title:'ALUMNI LP3I',}}/>
-        <HomeStack.Screen name="Kampus"       component={kampus}       options={{title:'DETAIL KAMPUS',}}/>
+        <HomeStack.Screen 
+                    name="Info"  
+                    component={info}      
+                    options={{title:'INFORMASI C&P ',}}/>
+        <HomeStack.Screen
+                    name="Event" 
+                    component={event}     
+                    options={{title:'EVENTS',}}/>
+        <HomeStack.Screen 
+                    name="Hiring"  
+                    component={hiring}  
+                    options={({route}) => ({
+                      title: route.params.title,
+                      headerBackTitleVisible: false
+                      })}
+                    />
+        <HomeStack.Screen 
+                    name="hiringDetail"
+                    component={hiringDetail}
+                    options={({route}) => ({
+                      //title: route.params.title,
+                    headerBackTitleVisible: false,
+                    headerTitle: false,
+                    headerTitle: false,
+                    headerTransparent: true,
+                    headerTintColor: '#fff'
+                      })}
+                    />
+        <HomeStack.Screen 
+                    name="Galeri"  
+                    component={galeri}
+                    options={{title:'GALERI',}}/>
+        <HomeStack.Screen 
+                    name="Alumni"    
+                    component={alumni} 
+                    options={{title:'ALUMNI LP3I',}}/>
+        <HomeStack.Screen 
+                    name="Kampus"   
+                    component={kampus} 
+                    options={{title:'DETAIL KAMPUS',}}/>
      </HomeStack.Navigator>
 );
 
-const ProfileStack = createStackNavigator();
+
 const ProfileStackScreen = () => (
       <ProfileStack.Navigator>
         <ProfileStack.Screen name="Profile" component={profile}/>
@@ -148,7 +190,7 @@ const ProfileStackScreen = () => (
 );
 
 
-const ScheduleStack = createStackNavigator();
+
 const ScheduleStackScreen =() => (
     <ScheduleStack.Navigator>
       <ScheduleStack.Screen name="Jadwal" component={jadwal}/>
@@ -197,5 +239,4 @@ export default() => {
         </AuthContext.Provider>
   );
 }
-
 

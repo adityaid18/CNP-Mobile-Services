@@ -4,7 +4,8 @@ import { AntDesign, MaterialCommunityIcons, FontAwesome, MaterialIcons } from '@
 import { StatusBar } from 'expo-status-bar';
 import Banner from '../../assets/storage/pexels-cottonbro-4778621.jpg'
 import Banner2 from '../../assets/storage/kampus_lp3i.jpg'
-import Banner3 from '../../assets/storage/pexels-keira-burton-6147161.jpg'
+import Banner3 from '../../assets/storage/pexels-keira-burton-6147161-compress1.jpg'
+import Banner4 from '../../assets/storage/pexels-ivan-samkov-5676744-compress1.jpg'
 import Swiper from 'react-native-swiper'
 
 
@@ -16,13 +17,13 @@ export const home = ({ navigation }) => {
 {/* swipper banner    */}
           <View style={styles.slideContainer}>
             <Swiper autoplay height={200}>
-              <View style={styles.slide}>
+              {/* <View style={styles.slide}>
                    <Image
                     style={styles.slideImage} 
                     source={Banner}
                     resizeMode="cover"
                     /> 
-              </View>
+              </View> */}
                <View style={styles.slide}>
                    <Image
                     style={styles.slideImage} 
@@ -30,13 +31,20 @@ export const home = ({ navigation }) => {
                     resizeMode="cover"
                     /> 
               </View>
-               {/* <View style={styles.slide}>
+               <View style={styles.slide}>
                    <Image
                     style={styles.slideImage} 
                     source={Banner3}
                     resizeMode="cover"
                     /> 
-              </View> */}
+              </View>
+               <View style={styles.slide}>
+                   <Image
+                    style={styles.slideImage} 
+                    source={Banner4}
+                    resizeMode="cover"
+                    /> 
+              </View>
              
             </Swiper>
           </View>
@@ -71,7 +79,7 @@ export const home = ({ navigation }) => {
         <View style={styles.row_child}>
           <TouchableOpacity 
                 // style={styles.button} 
-                onPress={() => navigation.navigate('Hiring')}
+                onPress={() => navigation.navigate('Hiring', {title:'HIRING KAMPUS'})}
             >
                 <FontAwesome name="archive" size={50} color="black" />
                 <Text style={{textAlign:'center'}}>Hiring</Text>
