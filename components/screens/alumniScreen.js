@@ -109,7 +109,7 @@ export const alumni = () => {
     <OverFlowItems data={data} scrollXAnimated={scrollXAnimated} />
     <FlatList 
       data={data}
-      keyExtractor={(_, index) => String(index)}T Bank Central Asia Tbk
+      keyExtractor={(_, index) => String(index)}
       horizontal
       inverted
       contentContainerStyle={{
@@ -154,11 +154,14 @@ export const alumni = () => {
                       { scale },
                     ],
                   }}>
-          <Image source={item.image} style={{
+          <Image 
+          source={item.image}
+          style={{
             width: ITEM_WIDTH,
             height: ITEM_HEIGHT,
             borderRadius: 14,
-          }}/>
+          }}
+          />
         </Animated.View>
         );
        

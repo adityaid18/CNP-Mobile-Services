@@ -12,8 +12,10 @@ import  Icons from 'react-native-vector-icons/MaterialCommunityIcons';
 // import screens
 import {alumni }       from './components/screens/alumniScreen';
 import {event  }       from './components/screens/eventScreen';
+import {eventDetail}   from './components/screens/eventDetailScreen'
 import {create }       from './components/screens/createScreen';
 import {galeri }       from './components/screens/galeriScreen';
+import {galeriDetail } from './components/screens/galeriDetailScreen';
 import {hiring }       from './components/screens/hiringScreen';
 import {hiringDetail } from './components/screens/hiringDetailScreen';
 import {home   }       from './components/screens/homeScreen';
@@ -23,7 +25,6 @@ import {kampus }       from './components/screens/kampusScreen';
 import {login  }       from './components/screens/loginScreen';
 import {profile}       from './components/screens/profileScreen';
 import {Splash }       from './components/screens/loadingScreen';
-
 
 
 const RootStack = createStackNavigator();
@@ -147,6 +148,17 @@ const HomeStackScreen = ({navigation}) => (
                     name="Event" 
                     component={event}     
                     options={{title:'EVENTS',}}/>
+         <HomeStack.Screen
+                    name="EventDetail" 
+                    component={eventDetail}     
+                    options={{
+                     // title:'EVENTS',
+                    headerBackTitleVisible: false,
+                    headerTitle: false,
+                    headerTransparent: true,
+                    headerTintColor: '#fff'
+                      
+                      }}/>
         <HomeStack.Screen 
                     name="Hiring"  
                     component={hiring}  
@@ -162,7 +174,6 @@ const HomeStackScreen = ({navigation}) => (
                       //title: route.params.title,
                     headerBackTitleVisible: false,
                     headerTitle: false,
-                    headerTitle: false,
                     headerTransparent: true,
                     headerTintColor: '#fff'
                       })}
@@ -171,6 +182,15 @@ const HomeStackScreen = ({navigation}) => (
                     name="Galeri"  
                     component={galeri}
                     options={{title:'GALERI',}}/>
+        <HomeStack.Screen 
+                    name="galeriDetail"  
+                    component={galeriDetail}
+                    options={{
+                      //title:' DETAIL GALERI',
+                      headerBackTitleVisible: false,
+                      headerTitle: false,
+                      headerTransparent: true,
+                    }}/>
         <HomeStack.Screen 
                     name="Alumni"    
                     component={alumni} 
@@ -197,7 +217,7 @@ const ScheduleStackScreen =() => (
     </ScheduleStack.Navigator>
 );
 
-
+ <Text>Galeri Detail screen</Text>
 
 
 export default() => {
@@ -239,4 +259,5 @@ export default() => {
         </AuthContext.Provider>
   );
 }
+
 

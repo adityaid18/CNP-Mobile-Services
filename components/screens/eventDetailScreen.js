@@ -14,9 +14,9 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
 const MIN_HEIGHT = Platform.OS === 'android' ? 50 : 10;
-const MAX_HEIGHT = 250;
+const MAX_HEIGHT = 350;
 
-export const hiringDetail = ({route}) => {
+export const eventDetail = ({route}) => {
     const itemData = route.params.itemData;
     const navTitleView = useRef(null);
   
@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
     color: 'white',
     backgroundColor: 'transparent',
     fontSize: 24,
+    fontWeight:'bold'
   },
   sectionContent: {
     fontSize: 16,
@@ -100,12 +101,12 @@ const styles = StyleSheet.create({
     opacity: 0,
   },
   navTitle: {
-    color: 'white',
+    color: '#fff',
     fontSize: 18,
     backgroundColor: 'transparent',
   },
   section: {
-    padding: 20,
+    padding: 30,
     borderBottomWidth: 1,
     borderBottomColor: '#cccccc',
     backgroundColor: 'white',
